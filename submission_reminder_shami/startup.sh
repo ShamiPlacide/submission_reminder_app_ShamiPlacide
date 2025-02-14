@@ -15,7 +15,7 @@ fi
 
 # Display assignment details from the environment variables
 echo "Assignment: $ASSIGNMENT"
-echo "Days remaining to submit: $TIME_REMAINING days"
+echo "Days remaining to submit: $DAYS_REMAINING days"
 
 echo "----------------------------------------------"
 
@@ -24,3 +24,4 @@ check_submissions "$submissions_file"
 
 # Final message
 echo "Reminder application executed successfully!"
+
