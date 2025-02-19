@@ -88,30 +88,8 @@ EOF
 cat << 'EOF' > "$main_dir/startup.sh"
 #!/bin/bash
 
-# Load environment variables and functions
-source ./config/config.env
-source ./modules/functions.sh
-
-# Path to submission file
-submissions_file="./assets/submissions.txt"
-
-# Check if submissions file exists
-if [ ! -f "$submissions_file" ]; then
-    echo "Error: Submissions file ($submissions_file) is missing!"
-    exit 1
-fi
-
-# Display assignment details from the environment variables
-echo "Assignment: $ASSIGNMENT"
-echo "Days remaining to submit: $DAYS_REMAINING days"
-
-echo "----------------------------------------------"
-
-# Call the function to check submissions
-check_submissions "$submissions_file"
-
-# Final message
-echo "Reminder application executed successfully!"
+# runnig reminder.sh to launch everything
+bash ./app/reminder.sh
 EOF
 
 # Populate README.md
@@ -120,10 +98,10 @@ cat << EOF > "$main_dir/README.md"
 
 This application helps students track and receive alerts about upcoming assignment deadlines.
 
-## Setup Instructions:
-1. Run the setup script:
+# Create_environment  Instructions:
+1. Run the create_env script:
    \`\`\`
-   chmod +x setup_all.sh
+   chmod +x create_environment.sh
    ./setup_all.sh
    \`\`\`
 2. Navigate to the created directory and start the app:
@@ -140,7 +118,7 @@ This application helps students track and receive alerts about upcoming assignme
 - \`functions.sh\` → Includes helper functions
 - \`startup.sh\` → Starts the application
 
-## Author:
+# Author:
 Created by **${userName}**
 EOF
 
